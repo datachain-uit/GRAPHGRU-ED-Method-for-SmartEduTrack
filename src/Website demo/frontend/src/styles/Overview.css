@@ -1,0 +1,166 @@
+/* Overview.css */
+
+.main-content-container{
+    padding-left: 10px;
+    background-color: #d9cfef; 
+    padding-top: 20px;
+    padding-right: 10px;
+    padding-bottom: 10px; /* Màu nền xanh nhạt */ /* Khoảng cách giữa phần nội dung và header */
+  }
+
+  .header-container{
+    background-color: #0071BC;
+    padding: 2px;
+  }
+  .title-overview{
+    padding-top: 10px;
+    font-size: 2.5rem;
+    color: #ffffff;  
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .file-summary-container {
+    padding-top: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-bottom: 30px;
+  }
+  .text-file-summary{
+    text-align: center;
+    font-weight: BOLD;
+  }
+
+  .title-text-dataset{
+    text-align: center;
+    font-weight: bold;
+  }
+  .file-details-container {
+    background-color: #EEEEEE;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+
+  }
+  .file-table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .file-table tbody tr:hover {
+  background-color: #f0f0f0; /* Hoặc màu bạn muốn */
+  cursor: pointer;           /* Tùy chọn nếu muốn có icon tay */
+}
+  .file-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .file-table th,
+  .file-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .file-table thead th {
+    position: sticky;
+    top: 0;
+    background: #9ecff7;
+    z-index: 5;
+    text-align: center;
+
+  }
+  
+  .search-container {
+    border: 2px solid #dbeafe;  /* Màu xanh nhạt cho border */
+    border-radius: 10px;  /* Bo góc cho input */
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .search-input{
+    font-family: 'Inter', sans-serif;
+    border-radius: 8px; 
+    margin-left: 15px;
+    margin-bottom: 20px;
+  }
+  .detail-dataset{
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  h2, h3 {
+    font-family: 'Inter', sans-serif;
+  }
+  .missing-values {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  .title-chart-text{
+    padding-top: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .card-title{
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+  }
+  .card-text{
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+  }
+  .table-summary{
+    font-size: 18px;
+  }
+  .data-chart-container {
+    width: 100%;
+    height: 38VH;
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-top: 32px;
+  }
+  .side-bar-container{
+    width: 20%;
+    height: 100vh;
+    zIndex: 1000;
+  }
+  .search-container{
+    width: 50%;
+  }
+  .table-dataset {
+    max-width: 85%; /* hoặc 80%, 60rem, tùy ý */
+    margin: 0 auto; /* canh giữa */
+  }
+  .search-input{
+    width: 60%;
+    padding: 8px 12px;
+  }
+  .website-learning{
+    padding: 15px;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+  }
+  .chart-container {
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 20px;
+  }
+  

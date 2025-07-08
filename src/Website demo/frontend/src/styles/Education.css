@@ -1,0 +1,204 @@
+.header-education {
+  background-color: #0071bc;
+  padding: 2px;
+}
+.education-title {
+  padding-top: 10px;
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.chart-container {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.infocard-container,
+.update-container {
+  /* padding: 3px; */
+  margin-bottom: 14px;
+  display: flex;
+}
+.text-end {
+  padding: 2px;
+}
+.update-text {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  padding: 4px;
+  color: #ffffff;
+  font-weight: bold;
+}
+.search-input {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  width: 65%;
+}
+.properties-container {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  justify-content: center;
+}
+.properties-table {
+  width: 100%;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+.main-education {
+  padding-left: 10px;
+  background-color: #d9cfef;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+.title-properties {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+.table-header {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+}
+.data-table {
+  display: flex;
+}
+.table-body {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.column-title {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.label-chart {
+  display: flex;
+  padding: 10px;
+  padding-top: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+.label-chart-container {
+  padding-left: 30px;
+  width: 100%;
+}
+.column-table {
+  width: 100%;
+  max-height: 400px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  overflow-y: auto;
+  border: "1px solid #ccc";
+}
+.label-table {
+  width: 100%;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-bottom: 15px;
+}
+.label-count-title {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+.label-header {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.label-body {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.label-chart-title {
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+}
+.direct-evaluation {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+}
+.proportion {
+  padding-bottom: 5px;
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.dot-evaluation {
+  margin-right: 5px;
+}
+.complete-title {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  text-align: left;
+}
+.left {
+  justify-content: left;
+}
+.right {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  justify-content: right;
+}
+.progress-bar {
+  padding-bottom: 20px;
+}
+.definition-title {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.definition-detail {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  text-align: justify;
+}
+.result-title {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.result-detail {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.id-col {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.eva-container {
+  border-radius: 8px;
+  padding-top: 20px;
+}
+.reliability-chart {
+  padding-bottom: 10px;
+  margin-right: 20px;
+}
+.relevance-chart {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.indirect-header {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+.indirect-body {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+}
+.export-pdf-container {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 10px;
+}

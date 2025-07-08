@@ -1,0 +1,43 @@
+/* Sidebar layout */
+.sidebar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #f8f9fa;
+  z-index: 1000;
+  border-right: 1px solid #dee2e6;
+}
+
+/* Main layout */
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+.main-content {
+  margin-left: 250px; /* Đẩy nội dung sang phải bằng chiều rộng sidebar */
+  flex: 1;
+  overflow-y: auto;
+  background-color: #f0f2f5;
+  transition: margin-left 0.3s ease;
+}
+.overview-button,
+.education-management,
+.personalized-learning {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  padding: 2px;
+}
+
+/* Responsive: khi sidebar ẩn hoặc mobile */
+@media (max-width: 768px) {
+  .sidebar-fixed {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
