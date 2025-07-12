@@ -1,82 +1,64 @@
+# GCN-I Method for SmartEduTrack
+
+SmartEduTrack leverages **Graph Convolutional Networks (GCN)** to address two major challenges in educational datasets: **sparsity** and **diversity**. This project introduces a novel method, **GCN-I**, which enhances data quality by inferring and filling in missing values within learner behavioral data using graph-based reasoning.
+
+While traditional imputation methods (e.g., default value substitution) often lead to loss of important semantic information, GCN-based inference takes advantage of the **structural relationships between data entities**. By modeling the data as a graph, GCN learns how to propagate information across connected nodes, enabling **context-aware and semantically-rich estimations** of missing values.
+
+---
+
+## 📁 Project Structure
+
 ```
-.
 |-- LaTex-paper
-|   |-- img
-|   |   `-- uitlogo.png
-|   |-- main.bib
-|   `-- main.tex
+| |-- img
+| | -- uitlogo.png 
+| |-- main.bib
+| -- main.tex
+|
 |-- src
-|   `-- sourceCode.go
-|-- submission
-|   `-- note.md
-`-- README.md
+| |-- data
+|   |-- datasets
+|   |-- notebooks
+| |-- video demo
+| |-- Website demo
+|   |-- backend
+|   |-- frontend
 ```
 
-# Early-Warning-System-on-MOOCs
+## 🚀 How to Run SmartEduTrack Locally
 
-Online education through MOOCs opens up boundless learning opportunities but faces significant challenges in maintaining learning efficiency. The Early Warning System (EWS) leverages big data and machine learning to predict outcomes, provide timely support for learners, enhance educational quality, and promote sustainable development in the digital age..
+Follow the steps below to run the SmartEduTrack platform on your local machine.
 
-## Getting Started
+### Step 1: Install Python
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Install **Python 3.11.6**, then install the required backend dependencies:
 
-### Prerequisites
+```bash
+cd src/backend
+pip install -r requirements.txt
+```
+### Step 2: Install Node.js and Frontend Dependencies
 
-The things you need before installing the software.
-
-- You need this
-- And you need this
-- Oh, and don't forget this
-
-### Installation
-
-A step by step guide that will tell you how to get the development environment up and running.
-
+Start the backend and frontend servers with the following commands:
+```bash
+cd src/frontend
+npm install
 ```
 
-First step
-Another step
-Final step
+### Step 2: Install Node.js and Frontend Dependencies
+```bash
+# In backend directory
+python manage.py runserver
 
+# In frontend directory
+npm run dev
 ```
 
-## Usage
+- Backend runs on port 5000
 
-A few examples of useful commands and/or tasks.
+- Frontend runs on http://127.0.0.1:3000
 
-```
-
-First example
-Second example
-And keep this in mind
-
-```
-
-## Deployment
-
-Additional notes on how to deploy this on a live or release system. Explaining the most important branches, what pipelines they trigger and how to update the database (if anything special).
-
-### Server
-
-- Live:
-- Release:
-- Development:
-
-### Branches
-
-- Master:
-- Feature:
-- Bugfix:
-- etc...
-
-## Additional Documentation and Acknowledgments
-
-- Project folder on server:
-- Confluence link:
-- Asana board:
-- etc...
-
-## Roadmap
-
-- [x] work on sth
-- [ ] progress sth
+## 🧩 Prerequisites
+Make sure you have the following installed:
+- Python >= 3.11.6
+- Node.js and npm
