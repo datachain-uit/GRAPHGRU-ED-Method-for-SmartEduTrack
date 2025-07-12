@@ -1,0 +1,151 @@
+\chapter{Cơ sở lý thuyết}
+\label{chap:chap3}
+
+\section{Học sâu (Deep Learning)}
+\subsection{Giới thiệu}
+Về mặt kiến trúc, \textbf{Học sâu} được xây dựng dựa trên các mạng nơ-ron nhân tạo có chiều sâu, bao gồm nhiều lớp ẩn xếp chồng lên nhau. Mặc dù là một nhánh của Học máy, điểm ưu việt của Học sâu đến từ khả năng tự động khám phá và biểu diễn phân cấp cho dữ liệu. Điều này có nghĩa là mô hình có thể tự học từ các đặc trưng cơ bản đến các đặc trưng trừu tượng hơn. Năng lực này đặc biệt hữu ích khi xử lý các bộ dữ liệu lớn và phức tạp, chẳng hạn như dữ liệu đa phương thức trong môi trường MOOCs.
+
+Sự tăng trưởng mạnh mẽ của dữ liệu trong những năm gần đây, kết hợp với những tiến bộ vượt bậc của năng lực xử lý tính toán, đã tạo ra một môi trường lý tưởng cho các mô hình học sâu phát triển. Học sâu đã chứng tỏ hiệu quả trong nhiều lĩnh vực. Điểm khác biệt mang tính cách mạng của Học sâu so với các phương pháp truyền thống là khả năng tự động học hỏi đặc trưng (feature learning), có thể phát hiện các mối quan hệ và mẫu tiềm ẩn trong dữ liệu một cách hiệu quả hơn.
+
+\subsection{Các Kiến trúc Học sâu cho Dữ liệu Chuỗi}
+Bản chất tuần tự của hành vi người học trên các nền tảng MOOCs đòi hỏi việc sử dụng các pipeline học sâu được thiết kế chuyên biệt cho dữ liệu chuỗi thời gian.
+
+\begin{itemize}
+    \item \textbf{Mạng nơ-ron hồi quy (Recurrent Neural Networks - RNNs)}\cite{SHERSTINSKY2020132306}:
+    \begin{itemize}
+        \item \textbf{Nguyên lý hoạt động:} Đặc trưng cốt lõi của RNN là khả năng nắm bắt sự phụ thuộc tuần tự trong dữ liệu. Mô hình thực hiện điều này bằng cách sử dụng một bộ nhớ nội tại (trạng thái ẩn) để lưu giữ thông tin từ các bước trước đó, tạo ra một ngữ cảnh cho việc xử lý dữ liệu ở bước hiện tại. 
+        \item \textbf{Cơ chế:} Tại mỗi bước thời gian $t$, đầu ra được ký hiệu là $h_t$, được xác định dựa trên sự kết hợp giữa đầu vào hiện tại $x_t$ và trạng thái ẩn từ bước thời gian trước đó $h_{t-1}$. Từ đó, RNN có thể xử lý được dữ liệu tuần tự. Quá trình này được mô hình hóa theo công thức:
+
+\[
+h_t = f(W_{xh}x_t + W_{hh}h_{t-1} + b_h)
+\]
+
+trong đó:
+\begin{itemize}
+    \item $W_{xh}$ là ma trận trọng số kết nối đầu vào với lớp ẩn.
+    \item $W_{hh}$ là ma trận trọng số kết nối trạng thái ẩn trước với trạng thái ẩn hiện tại.
+    \item $b_h$ là vector độ lệch (bias).
+    \item $f$ là hàm kích hoạt phi tuyến, thường là $\tanh$ hoặc ReLU.
+\end{itemize}
+        \item \textbf{Hạn chế:} Các kiến trúc RNN truyền thống bộc lộ yếu điểm khi xử lý các chuỗi dài do phải đối mặt với hai vấn đề nghiêm trọng: \textbf{suy biến gradient (vanishing gradient)} và \textbf{bùng nổ gradient (exploding gradient)}. Các hiện tượng này cản trở khả năng của mô hình trong việc học và ghi nhớ các mối phụ thuộc kéo dài qua nhiều bước thời gian. 
+
+    \end{itemize}
+
+    \item \textbf{Mạng bộ nhớ dài-ngắn (LSTMs)}\cite{10.1162/neco_a_01199}:
+    \begin{itemize}
+        \item \textbf{Giải pháp cho RNN:} LSTM là một kiến trúc cải tiến, được thiết kế đặc biệt để giải quyết các hạn chế cố hữu của RNN. Nhờ cấu trúc đặc biệt, LSTM có khả năng lưu giữ và tận dụng các mối quan hệ phụ thuộc dài hạn một cách hiệu quả, điều mà các mạng RNN truyền thống thường gặp khó khăn trong việc xử lý.
+
+        \item \textbf{Kiến trúc Cổng:} LSTM đạt được điều này thông qua một kiến trúc phức tạp hơn với các "cổng" (gates) nội bộ kiểm soát luồng thông tin vào và ra khỏi một "ô nhớ" (cell state). Các cổng này bao gồm:
+        \begin{itemize}
+            \item \textbf{Cổng quên (Forget Gate):} Xác định phần thông tin nào trong trạng thái ô nhớ cũ cần được lãng quên hoặc loại bỏ.
+            \item \textbf{Cổng đầu vào (Input Gate):} Kiểm soát việc cập nhật thông tin mới vào trạng thái ô nhớ.
+            \item \textbf{Cổng đầu ra (Output Gate):} Điều tiết thông tin nào từ trạng thái ô nhớ sẽ được sử dụng để tạo ra kết quả đầu ra tại bước thời gian hiện tại.
+        \end{itemize}
+        \item \textbf{Ưu điểm:} Khả năng kiểm soát thông tin chi tiết này cho phép LSTM ghi nhớ thông tin quan trọng qua nhiều bước thời gian, làm cho chúng trở nên mạnh mẽ trong việc mô hình hóa các chuỗi hành vi học tập phức tạp.
+        \item \textbf{Ứng dụng:} Trong khuôn khổ khóa luận này, chúng tôi triển khai mô hình \textbf{LSTM xếp chồng 4 lớp (4-layer stacked LSTM)}. Kiến trúc xếp chồng cho phép mô hình học các biểu diễn dữ liệu ở nhiều cấp độ trừu tượng. Nhờ đó, nó có thể phân tích các mẫu hành vi ở nhiều quy mô khác nhau: từ các tương tác tức thời ở cấp độ vi mô (như một cú nhấp chuột) cho đến các xu hướng học tập tổng thể kéo dài ở cấp độ vĩ mô (như chiến lược học tập của người dùng trong cả khóa học). 
+    \end{itemize}
+
+    \item \textbf{Mạng đơn vị hồi tiếp có cổng (Gated Recurrent Unit - GRUs)}\cite{MIM2023119419}:
+    \begin{itemize}
+        \item \textbf{Một biến thể tối ưu của LSTM:} GRU là một kiến trúc tinh gọn hơn của LSTM, được phát triển nhằm cải thiện hiệu quả tính toán trong khi vẫn duy trì được năng lực nắm bắt các mối phụ thuộc dài hạn trong dữ liệu chuỗi.
+        
+        \item \textbf{Kiến trúc được đơn giản hóa:} GRU giảm độ phức tạp so với LSTM bằng cách chỉ sử dụng hai cơ chế cổng: \textbf{cổng cập nhật (update gate)} và \textbf{cổng đặt lại (reset gate)}. Việc giảm số lượng tham số này không chỉ giúp rút ngắn đáng kể thời gian huấn luyện mà trong nhiều bài toán cụ thể, còn có thể mang lại hiệu suất tương đương hoặc thậm chí vượt trội hơn so với LSTM.
+        
+        \item \textbf{Lựa chọn chiến lược cho dữ liệu lớn:} Trong bối cảnh làm việc với các bộ dữ liệu quy mô lớn như MOOCs, GRU nổi lên như một giải pháp thay thế hiệu quả, giúp đạt được sự cân bằng tối ưu giữa độ chính xác của mô hình và chi phí tài nguyên tính toán.
+    \end{itemize}
+
+    \item \textbf{Mạng LSTM hai chiều (BiLSTM)}\cite{singla2022ensemble}:
+    \begin{itemize}
+        \item \textbf{Khai thác ngữ cảnh toàn diện:} BiLSTM là một kiến trúc cải tiến của LSTM, cho phép mô hình xử lý chuỗi đầu vào từ quá khứ đến hiện tại (forward pass) và từ tương lai về hiện tại (backward pass).
+        \item \textbf{Cách hoạt động:} bao gồm hai lớp LSTM riêng biệt: một lớp xử lý chuỗi dữ liệu theo chiều thời gian tiến (\textit{forward}), và lớp còn lại xử lý cùng chuỗi theo chiều thời gian ngược lại (\textit{backward}). Các đầu ra tại mỗi bước thời gian từ hai chiều được kết hợp (thường thông qua phép nối vector) để tạo ra biểu diễn ngữ cảnh đầy đủ, phản ánh thông tin từ cả quá khứ lẫn tương lai.
+        \item \textbf{Lợi ích:}  BiLSTM có thể nắm bắt được hành vi của người học một cách tổng quát hơn, ví dụ như một hành động ở giữa khóa học có thể được hiểu rõ hơn khi biết hành động dẫn đến nó và hành động xảy ra sau đó. 
+    \end{itemize}
+\end{itemize}
+
+\section{Mạng nơ-ron đồ thị (GNNs)}
+
+\subsection{Tổng quan về lý thuyết đồ thị}
+\textbf{Lý thuyết đồ thị} là một lĩnh vực trọng yếu trong toán học rời rạc, chuyên nghiên cứu các đối tượng được gọi là đồ thị. Về mặt hình thức, một \textbf{đồ thị (Graph)} $G = (V, E)$ được định nghĩa bởi một tập hợp hữu hạn các \textbf{đỉnh (Vertices/Nodes)} $V$ và một tập hợp các \textbf{cạnh (Edges)} $E$, với mỗi cạnh biểu diễn một mối liên kết giữa một cặp đỉnh. Các cạnh này có thể là có hướng (directed) hoặc vô hướng (undirected), và có thể được gán một \textbf{trọng số (weighted)} để thể hiện cường độ của mối liên kết đó.
+
+Trong các hệ thống phức tạp như MOOCs, các cấu trúc dữ liệu truyền thống như dạng bảng hay chuỗi thường không đủ để nắm bắt được các mối quan hệ nội tại phức tạp. Lý thuyết đồ thị cung cấp một phương pháp biểu diễn tự nhiên và mạnh mẽ cho các mối quan hệ này. Ví dụ, ta có thể mô hình hóa dữ liệu MOOCs như sau:
+\begin{itemize}
+    \item Mỗi \textbf{người học} là một đỉnh, còn cạnh thể hiện sự tương tác xã hội (ví dụ, trên diễn đàn) hoặc sự tương đồng trong hành vi học tập.
+    \item Mỗi \textbf{khóa học} là một đỉnh, và cạnh biểu thị sự liên quan về mặt chủ đề giữa các khóa học.
+    \item Các đỉnh bao gồm cả \textbf{người học} và \textbf{khóa học}, trong đó cạnh đại diện cho hành vi ghi danh hoặc các tương tác khác.
+    \item Các \textbf{video}, \textbf{bài tập}, hoặc \textbf{khái niệm học tập} là các đỉnh, và cạnh mô tả mối liên kết về cấu trúc và trình tự bên trong một khóa học.
+\end{itemize}
+
+
+\subsection{Mạng nơ-ron đồ thị (GNNs)}
+GNNs là một lớp các mô hình học sâu được phát triển chuyên biệt để làm việc với dữ liệu có cấu trúc phi Euclidean, mà đồ thị là một dạng điển hình. Trong khi các kiến trúc như Mạng nơ-ron tích chập (CNNs) được tối ưu cho dữ liệu có cấu trúc dạng lưới (ví dụ: hình ảnh) và Mạng nơ-ron hồi quy (RNNs) phù hợp với dữ liệu dạng chuỗi, GNNs lại có khả năng học các vector biểu diễn (embedding) cho các đỉnh và cạnh. Năng lực này có được thông qua việc tổng hợp thông tin từ các đỉnh kề và khai thác cấu trúc liên kết toàn cục của đồ thị.
+
+Ý tưởng cốt lõi của GNNs là \textbf{lan truyền thông tin (message passing)}: một đỉnh sẽ cập nhật biểu diễn của mình bằng cách tổng hợp thông tin không chỉ từ các đỉnh lân cận mà còn từ chính bản thân nó. Quá trình truyền và tích lũy thông tin này được lặp lại qua nhiều lớp, giúp thông tin lan rộng dần trên toàn bộ cấu trúc đồ thị. Nhờ đó, mỗi đỉnh dần xây dựng được một biểu diễn giàu ngữ cảnh, phản ánh không chỉ đặc trưng cục bộ mà còn cả cấu trúc toàn cục xung quanh nó.
+
+\subsection{Mạng nơ-ron tích chập trên đồ thị (GCNs)}
+\textbf{Mạng nơ-ron tích chập trên đồ thị (GCNs)} là một trong những kiến trúc GNN có tầm ảnh hưởng và được ứng dụng rộng rãi nhất. Ý tưởng cốt lõi của GCN là khái quát hóa phép toán tích chập (convolution), vốn rất thành công trên dữ liệu có cấu trúc Euclidean (như ảnh, chuỗi), để có thể áp dụng được cho dữ liệu có cấu trúc đồ thị bất quy tắc.
+
+Về nguyên tắc, mỗi lớp của mạng GCN thực hiện một quá trình tổng hợp và biến đổi đặc trưng. Cụ thể, biểu diễn mới của mỗi đỉnh được tạo ra bằng cách tổng hợp các biểu diễn từ tập đỉnh lân cận của nó, sau đó áp dụng một phép biến đổi tuyến tính (thông qua một ma trận trọng số có thể học được) và một hàm kích hoạt phi tuyến. Nhờ cơ chế này, GCN có khả năng học được các biểu diễn không chỉ dựa trên đặc tính nội tại của đỉnh mà còn dựa trên ngữ cảnh được cung cấp bởi các đỉnh lân cận.
+
+
+Công thức của một lớp GCN thường được biểu diễn như sau \cite{berg2017graph}:
+$$H^{(l+1)} = \sigma(\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}H^{(l)}W^{(l)})$$
+Trong đó:
+\begin{itemize}
+    \item $H^{(l)}$: Ma trận đặc trưng của các đỉnh ở lớp thứ $l$. $H^{(0)}$ thường là ma trận đặc trưng ban đầu của các đỉnh.
+    \item $\tilde{A} = A + I$: Ma trận kề của đồ thị ($A$) được bổ sung ma trận đơn vị ($I$). Việc thêm $I$ đảm bảo rằng thông tin của chính đỉnh đó cũng được đưa vào quá trình tổng hợp.
+    \item $\tilde{D}$: Ma trận bậc (degree matrix) của $\tilde{A}$. Đây là ma trận đường chéo mà mỗi phần tử $\tilde{D}_{ii}$ là tổng các giá trị trong hàng $i$ của $\tilde{A}$.
+    \item $\tilde{D}^{-\frac{1}{2}}\tilde{A}\tilde{D}^{-\frac{1}{2}}$: Toán tử chuẩn hóa đối xứng, giúp ổn định quá trình huấn luyện và tránh các vấn đề về tỷ lệ.
+    \item $W^{(l)}$: Ma trận trọng số huấn luyện của lớp thứ $l$, được học trong quá trình huấn luyện mô hình.
+    \item $\sigma$: Hàm kích hoạt phi tuyến (ví dụ: ReLU, Sigmoid), đưa tính phi tuyến vào mô hình.
+\end{itemize}
+
+\textbf{Ứng dụng của GCNs trong làm giàu dữ liệu cho MOOCs:}
+Trong khóa luận này, GCNs được khai thác như một công cụ mạnh mẽ để \textbf{làm giàu dữ liệu} trên các nền tảng MOOCs, đặc biệt là trong việc \textbf{điền khuyết giá trị (imputation)} cho các thông tin bị thiếu. Ý tưởng là khai thác mối quan hệ giữa các thực thể học tập như người học, khóa học và trường học và biến nó thành một đồ thị. Trong trường hợp một số đặc trưng của các thực thể này bị thiếu (chẳng hạn như điểm của một bài kiểm tra hoặc thời lượng xem video), GCN có thể tận dụng thông tin từ cấu trúc kết nối trong đồ thị để suy luận và ước lượng giá trị bị thiếu.
+
+\begin{enumerate}
+    \item \textbf{Mô hình hóa dữ liệu thành đồ thị:} Người học, khóa học, và các hành vi học tập được ánh xạ thành các đỉnh. Các mối quan hệ (ví dụ: người học $X$ đã đăng ký khóa học $Y$, người học $X$ đang học tại trường $Z$ khi học khóa học $Y$) được biểu diễn bằng các cạnh. Các đặc trưng ban đầu của các đỉnh (ví dụ: thông tin nhân khẩu học người học, đặc trưng hành vi người học) là đầu vào cho GCN.
+    \item \textbf{Lan truyền thông tin và học biểu diễn:} GCN sẽ thực hiện quá trình lan truyền thông tin qua các lớp. Mỗi đỉnh sẽ lấy thông tin từ chính nó và các cạnh xung quanh. Nhờ vậy, các biểu diễn (embedding) của từng đỉnh có khả năng phản ánh ngữ cảnh xung quanh cũng như mối quan hệ với các đỉnh khác trong đồ thị, góp phần nâng cao chất lượng thông tin mà mô hình học được.
+
+    \item \textbf{Suy luận giá trị thiếu:} Khi huấn luyện, GCN học cách ánh xạ các đặc trưng có sẵn của một đỉnh và các đỉnh lân cận thành một biểu diễn tổng hợp. Biểu diễn này sau đó có thể được sử dụng bởi một lớp đầu ra để dự đoán các giá trị đặc trưng bị thiếu. Chẳng hạn, nếu một người học không có dữ liệu về "thời gian xem video của khóa học X", GCN có thể dựa vào các người học tương tự (trên đồ thị) đã học khóa học X, hoặc dựa vào thời gian xem video khác mà người học đó đã xem từ các khóa học khác để suy luận giá trị bị thiếu này.
+    \item \textbf{Nâng cao chất lượng dữ liệu đầu vào:} Việc bổ sung và hoàn thiện các đặc trưng còn thiếu giúp cho các mô hình học sâu kế tiếp (chẳng hạn như RNN, LSTM, GRU hay BiLSTM) dễ dàng học hỏi và hoạt động. Nhờ đó, khả năng mô hình hóa hành vi người học và dự đoán khả năng hoàn thành khóa học được cải thiện đáng kể.
+
+\end{enumerate}
+
+\section{Kỹ thuật làm giàu dữ liệu (Data Enrichment)}
+
+\subsection{Định nghĩa}
+\textbf{Làm giàu dữ liệu (Data Enrichment)} là một tập hợp các kỹ thuật nhằm gia tăng giá trị và độ tin cậy của một bộ dữ liệu. Quá trình này bao gồm việc tích hợp thêm các thông tin mới từ các nguồn bên ngoài, suy luận các đặc trưng tiềm ẩn, hoặc điền khuyết các giá trị bị thiếu. Trong bối cảnh các hệ thống phức tạp như MOOCs, nơi tình trạng dữ liệu không đầy đủ và thiếu nhất quán thường xuyên xảy ra, việc làm giàu dữ liệu được xem là một bước tiền xử lý mang tính chiến lược và không thể thiếu.
+
+Các vai trò chính của quá trình làm giàu dữ liệu bao gồm:
+\begin{itemize}
+    \item \textbf{Hoàn thiện và nâng cao chất lượng dữ liệu:} Vai trò cơ bản nhất là khắc phục các điểm yếu cố hữu của dữ liệu thô, chẳng hạn như giảm thiểu nhiễu và bổ sung các giá trị bị thiếu, từ đó tạo ra một bộ dữ liệu sạch và toàn vẹn hơn.
+    
+    \item \textbf{Tối ưu hóa hiệu năng của mô hình:} Chất lượng dữ liệu đầu vào có mối tương quan trực tiếp đến hiệu suất của các mô hình học máy và học sâu. Một bộ dữ liệu đã được làm giàu sẽ cung cấp một nền tảng vững chắc hơn, giúp mô hình học được các mẫu quy luật chính xác hơn và đưa ra các dự đoán đáng tin cậy hơn.
+    
+    \item \textbf{Kiến tạo đặc trưng mới (Feature Engineering):} Bằng cách kết hợp dữ liệu từ nhiều nguồn hoặc khai thác các mối quan hệ cấu trúc, quá trình này cho phép tạo ra các đặc trưng mới có giá trị. Các đặc trưng này có thể cung cấp những góc nhìn sâu sắc mà dữ liệu gốc không thể hiện được, từ đó mang lại giá trị gia tăng đáng kể cho mô hình.
+\end{itemize}
+
+\subsection{Các phương pháp điền khuyết dữ liệu}
+Để làm cơ sở so sánh, phần này sẽ tổng quan một số phương pháp xử lý dữ liệu thiếu truyền thống thường được áp dụng trong các nghiên cứu trước đây:
+\begin{itemize}
+    \item \textbf{Phương pháp loại bỏ (Listwise/Casewise Deletion)} \cite{Pepinsky_2018}: Đây là cách tiếp cận trực tiếp nhất, thực hiện xóa bỏ toàn bộ các quan sát (hàng) hoặc các thuộc tính (cột) có chứa dù chỉ một giá trị bị thiếu. Tuy nhiên, phương pháp này chỉ phù hợp khi tỷ lệ thiếu hụt rất thấp. Nếu không, nó sẽ gây lãng phí thông tin và có thể dẫn đến các kết luận sai lệch do làm thay đổi phân bố của dữ liệu.
+    
+    \item \textbf{Điền khuyết bằng giá trị thống kê đơn biến (Univariate Statistical Imputation)}\cite{JEREZ2010105}: Kỹ thuật này ước tính giá trị thiếu dựa trên các thước đo khuynh hướng trung tâm như giá trị trung bình (mean), trung vị (median), hoặc yếu vị (mode) của chính cột dữ liệu đó. Ưu điểm của phương pháp là sự đơn giản và tốc độ tính toán nhanh, nhưng nhược điểm lớn là bỏ qua hoàn toàn mối tương quan giữa các biến, dẫn đến việc làm thu hẹp phương sai và phá vỡ cấu trúc tự nhiên của dữ liệu.
+    
+    \item \textbf{Điền khuyết dựa trên mô hình hồi quy (Regression Imputation)}\cite{zhang2016missing}: Phương pháp này xây dựng một mô hình hồi quy, trong đó biến có giá trị thiếu được xem là biến phụ thuộc và các biến còn lại là biến độc lập, nhằm dự đoán giá trị cần điền. Cách tiếp cận này thường mang lại độ chính xác cao hơn so với các phương pháp thống kê đơn giản. Tuy nhiên, nó dựa trên giả định về một mối quan hệ tuyến tính, do đó có thể cho kết quả không chính xác nếu mối quan hệ thực tế là phi tuyến hoặc phức tạp.
+    
+    \item \textbf{Điền khuyết bằng thuật toán K-láng giềng gần nhất (K-NN Imputation)}\cite{ZHANG20122541}: Phương pháp này xác định một tập hợp gồm K điểm dữ liệu (láng giềng) gần nhất với điểm bị thiếu, sau đó sử dụng giá trị trung bình hoặc giá trị phổ biến nhất của các láng giềng này để điền khuyết. Độ chính xác của phương pháp này rất nhạy cảm với việc lựa chọn siêu tham số \( K \) và thước đo khoảng cách, khiến nó dễ bị ảnh hưởng bởi nhiễu và các phân bố dữ liệu không đồng đều.
+\end{itemize}
+
+\subsection{Ưu điểm của Làm giàu Dữ liệu với GNNs}
+Trong môi trường dữ liệu MOOCs, nơi tồn tại các mối quan hệ đa chiều và phức tạp giữa người học, khóa học và hoạt động, các phương pháp xử lý dữ liệu truyền thống thường không đủ khả năng để nắm bắt trọn vẹn các thông tin này. GNNs mang lại những ưu thế vượt trội sau đây:
+\begin{itemize}
+    \item \textbf{Tận dụng cấu trúc quan hệ của dữ liệu:} Khác biệt căn bản so với các phương pháp truyền thống vốn chỉ dựa trên đặc trưng cục bộ, GNNs có khả năng tự động học và khai thác cấu trúc đồ thị của dữ liệu để suy luận các giá trị thiếu. Chúng xem dữ liệu như một hệ thống kết nối thay vì một tập hợp các điểm độc lập.
+    
+    \item \textbf{Suy luận dựa trên ngữ cảnh toàn cục:} GNNs có năng lực tích hợp thông tin từ nhiều nguồn khác nhau trong cấu trúc đồ thị, cho phép suy đoán các giá trị thiếu một cách hiệu quả hơn. Ví dụ, để dự đoán điểm số bị thiếu của một học viên, mô hình GCN không chỉ dựa vào dữ liệu của chính học viên đó mà còn tận dụng thông tin từ những người học có hồ sơ tương đồng, qua đó nâng cao đáng kể độ chính xác của quá trình điền khuyết.
+
+    \item \textbf{Xây dựng biểu diễn vector giàu thông tin:} Các biểu diễn (embeddings) mà GNNs tạo ra cho mỗi đỉnh không chỉ mã hóa đặc tính của bản thân đỉnh mà còn phản ánh cả vị trí và vai trò của nó trong toàn bộ mạng lưới. Những biểu diễn "nhận thức được ngữ cảnh" (context-aware) này là cơ sở để thực hiện việc điền khuyết một cách thông minh và hiệu quả.
+    
+    \item \textbf{Khả năng mô hình hóa linh hoạt:} Kiến trúc của GNN cho phép xử lý nhiều loại quan hệ và cấu trúc đồ thị không đồng nhất, một đặc tính rất phù hợp với bản chất đa dạng và phức tạp của dữ liệu MOOCs.
+\end{itemize}
+Do đó, việc ứng dụng GNNs được xem là một hướng tiếp cận vượt trội, không chỉ góp phần cải thiện độ chính xác của các mô hình học sâu mà còn tăng cường độ tin cậy cho bài toán dự đoán kết quả hoàn thành khóa học.

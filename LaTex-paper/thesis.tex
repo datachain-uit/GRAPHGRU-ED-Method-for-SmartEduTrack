@@ -1,0 +1,78 @@
+\documentclass[final,openany,oneside]{hcmuitthesis}
+\let\cleardoublepage\clearpage
+% Config reference source file
+\addbibresource{references/chapter2.bib}
+\addbibresource{references/chapter3.bib}
+\addbibresource{references/chapter5.bib}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{multirow}
+\usepackage{pdfpages}
+\usepackage{subcaption}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{float}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\useunder{\uline}{\ul}{}
+% =========== Thay đổi thông tin tại phần này ===========
+\upperuniname{ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH}
+\uniname{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ THÔNG TIN}
+\deptname{KHOA KHOA HỌC VÀ KỸ THUẬT THÔNG TIN}
+\stumajor{CỬ NHÂN NGÀNH CÔNG NGHỆ THÔNG TIN}
+\title{NGHIÊN CỨU PHƯƠNG PHÁP HỌC SÂU TRONG BÀI TOÁN DỰ ĐOÁN KẾT QUẢ HOÀN THÀNH KHÓA HỌC CỦA NGƯỜI HỌC TRÊN NỀN TẢNG MOOCS}
+\titleen{RESEARCH ON DEEP LEARNING METHODS FOR PREDICTING LEARNER COURSE COMPLETION OUTCOMES ON MOOC PLATFORMS}
+\supervisor{GIẢNG VIÊN HƯỚNG DẪN}
+\supervisorname{ThS. NGUYỄN THỊ ANH THƯ}
+\stuname{NGUYỄN VIẾT KHA \\
+            NGUYỄN HOÀI PHƯƠNG}
+\stunamewithid{NGUYỄN VIẾT KHA - 21520949\\
+                NGUYỄN HOÀI PHƯƠNG - 21521308}
+\reporttype{KHÓA LUẬN TỐT NGHIỆP}   
+\instruction{GIẢNG VIÊN HƯỚNG DẪN}
+\reportplace{TP. HỒ CHÍ MINH, NĂM }
+
+% =========== Hết phần thay đổi thông tin ===========
+
+\input{chapters/front/glossaries.tex}
+\makeglossaries
+% Begin thesis
+\setcounter{secnumdepth}{3}
+\begin{document}
+
+\coverpage%
+\secondcoverpage%
+
+% Begin above main thesis
+\frontmatter
+% \include{chapters/front/decision.tex}%
+\include{chapters/front/thanks.tex}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+\clearpage
+
+\mainthesis
+
+% Main chapter in thesis
+\include{chapters/main/chapter1.tex}
+\include{chapters/main/chapter2.tex}
+\include{chapters/main/chapter3.tex}
+\include{chapters/main/chapter4.tex}
+\include{chapters/main/chapter5.tex}
+\include{chapters/main/chapter6.tex}
+\include{chapters/main/chapter7.tex}
+
+% Appendix chapter in thesis
+%include{chapters/back/MAPR2024_LongHoangNguyen/apendixA}
+
+% Print references
+\printbibliography[heading=bibintoc, title = {Tài liệu tham khảo}]
+
+\appendix
+\includepdf[page={1-7}]{ICCAE2026.pdf}
+\end{document}

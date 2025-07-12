@@ -1,0 +1,33 @@
+\chapter*{\centering{Tóm tắt khóa luận}}
+\addcontentsline{toc}{chapter}{Tóm tắt khóa luận}
+
+% Hiện nay, giáo dục đặc biệt là giáo dục trực tuyến ngày càng phát triển, nổi bật nhất có thể kể đến là các khoá học trực tuyến mở (\gls{MOOCs}) - một hình thức học tập phổ biến, cung cấp cho người học đa dạng sự lựa chọn về khoá học, khả năng tiếp cận linh hoạt theo hình thức online. Để nâng cao hiệu quả học tập và đảm bảo người dùng tìm được những khóa học phù hợp nhất với nhu cầu và sở thích của họ, việc phát triển các hệ thống khuyến nghị khoá học hiệu quả là vô cùng quan trọng. 
+% Mặc dù các mô hình thống khuyến nghị trong các nghiên cứu trước đây đã cho thấy hiệu suất đáng kể trong tác vụ đề xuất khoá học, nhưng vần còn không ít thách thức khi xây dựng hệ thống khuyến nghị cho các nền tảng MOOCs
+
+
+% Một trong những khó khăn chính là việc xác định các phản hồi ngầm của người dùng, chẳng hạn như việc họ có thực sự thích một khóa học hay không, dựa trên dữ liệu tương tác hạn chế như đăng ký, hoàn thành khóa học và đánh giá. Hơn nữa, dữ liệu tương tác này thường chủ yếu là tích cực, trong khi thiếu phản hồi tiêu cực rõ ràng, gây khó khăn cho việc mô hình hóa chính xác sở thích và mối quan tâm của người dùng. Ngoài ra, sự thưa thớt dữ liệu, đặc biệt là trong các MOOCs mới hoặc ít người biết cũng làm giảm hiệu suất của các hệ thống khuyến nghị truyền thống.
+
+% Để giải quyết những thách thức này, khoá luận này đề xuất một cách tiếp cận mới đầy hứa hẹn dựa trên Các mạng thông tin không đồng nhất (HINs). HINs cung cấp một framework mạnh mẽ để tích hợp và khai thác thông tin từ nhiều dữ liệu khác nhau, bao gồm các thực thể như khóa học, video, người dùng và các mối quan hệ phức tạp giữa chúng. Bằng cách tận dụng sự đa dạng và phong phú của dữ liệu MOOC, HINs cho phép chúng ta xây dựng một biểu diễn toàn diện và sâu sắc hơn về người dùng và khóa học, từ đó cải thiện đáng kể chất lượng của các đề xuất.
+
+% Cụ thể, khoá luận này giới thiệu \textbf{H-BERT4Rec}, một mô hình khuyến nghị mới kết hợp sức mạnh của các mô hình khuyến nghị tuần tự như BERT4Rec với tính linh hoạt của HINs. H-BERT4Rec khai thác HINs để tạo ra các pre-train embedding cho các khóa học, đồng thời phát triển một chiến lược lấy mẫu tiêu cực mới để giải quyết vấn đề thiếu phản hồi tiêu cực. Hơn nữa, mô hình này còn nâng cấp kiến trúc của mô hình BERT4Rec hiện tại để tận dụng tối đa thông tin từ HINs.
+
+% Để chứng mình tính hiệu quả của mô hình H-BERT4Rec, em đã tiến hành các thực nghiệm trên một tập dữ liệu từ một nền tảng MOOC trong thực tế và so sánh với các mô hình cơ sở khác. Kết quả thực nghiệm cho thấy H-BERT4Rec vượt trội hơn hẳn, đạt được sự cải thiện lên đến 55,04\% so với các mô hình cơ sở. Đánh giá này minh chứng rằng, mô hình H-BERT4Rec mở ra một hướng nghiên cứu mới trong việc tận dụng dụng HINs để trong việc xây dựng, cải tiến các hệ thống khuyến nghị khoá học, góp phần nâng cao độ chính xác và cá nhân hóa cho người học trên các nền tảng MOOCs.
+
+% Các kết quả khoa học mà em đã có trong quá trình hoàn thành nội dung khoá luận:
+% \begin{itemize}
+%     \item Khoá luận sử dụng nội dung nghiên cứu được chấp nhận tại hội nghị \textbf{MAPR2024}: Long Nguyen, Thu Nguyen, Khoa Vo, Tu-Anh Nguyen Hoang, Tri  Nguyen, Ngoc-Thanh Dinh: \textit{Enhancing Sequential Recommendation System For MOOCs Based On Heterogeneous Information Networks }
+%     \item  Được nộp và đang được xem xét tại tạp chí \textbf{IEEE Access}: Thu Nguyen, Long Nguyen, Khoa Tan-Vo, Thu-Thuy Ta, Tu-Anh Nguyen Hoang, Mong-Thy Nguyen Thi, Ngoc-Thanh Dinh, Hong-Tri Nguyen: \textit{H-BERT4Rec: Enhancing Sequential Recommendation System on MOOCs based on Heterogeneous Information Networks}.
+% \end{itemize}
+Các nền tảng giáo dục trực tuyến MOOCs (Massive Open Online Courses) luôn phải đối mặt với vấn nạn bỏ học cao, một thực trạng đáng báo động khi tỷ lệ này thường xuyên trên 90\%. Vấn đề này làm giảm chất lượng giáo dục nghiêm trọng và gây lãng phí tài nguyên học tập mà các tổ chức giáo dục đã đầu tư. Chính vì lý do này, bài toán dự đoán kết quả hoàn thành khóa học (Course Completion Prediction) trở thành một trong những hướng giải quyết cấp thiết và thiết thực nhất.
+
+Tuy nhiên, việc mô hình dự đoán có độ chính xác cao là một bài toán khó, chủ yếu do những đặc tính cố hữu của dữ liệu từ MOOCs: khối lượng cực lớn, độ đa dạng cao và tỷ lệ dữ liệu bị thiếu hụt đáng kể. Nhằm giải quyết các rào cản nêu trên, ở khóa luận này chúng tôi giới thiệu và áp dụng phương pháp GCN-I. Sử dụng Mạng đồ thị tích chập (Graph Convolutional Networks - GCN) để suy diễn và bổ sung các giá trị khuyết một cách hiệu quả. Khả năng mô hình hóa mạng lưới quan hệ phức tạp giữa sinh viên, hoạt động và nội dung khóa học chính là ưu điểm làm nên sự khác biệt của GCN-I so với các kỹ thuật điền khuyết truyền thống. Nhờ vậy, quá trình điền khuyết không còn bị giới hạn bởi thông tin cục bộ mà được tối ưu hóa dựa trên các mối phụ thuộc trên toàn đồ thị, mang lại kết quả vừa chính xác vừa giàu ý nghĩa hơn trong bối cảnh giáo dục.
+
+Bằng việc tích hợp GCN-I vào kiến trúc học sâu, nghiên cứu đã giúp cải thiện chất lượng cho bộ dữ liệu lớn và thưa thớt. Kết quả dự đoán trên bộ dữ liệu MOOCCubeX cho thấy những cải thiện vượt trội: hệ số F1-score đạt 0.92 đối với nhãn D, độ chính xác 95\%, cùng chỉ số AUC-ROC ấn tượng 0.99. Chứng minh bằng những chỉ số này cho thấy sự vượt trội của GCN-I so với các phương pháp điền khuyết truyền thống trên bộ dữ liệu lớn và thưa thớt.
+
+Khóa luận này đã đạt được một số thành tựu, cụ thể như sau:
+\begin{itemize}
+    \item  Đã được chấp nhận đăng tại hội nghị \textbf{ICCAE 2026}: Kha Nguyen, Phuong Nguyen, Thu Nguyen, Khoa Tan VO, Phuc Nguyen, Hong-Tri Nguyen, Tu-Anh Nguyen-Hoang: \textit{Research on Enhancing Deep Learning Model Performance on MOOCs Using Data Enrichment with Graph Neural Networks.}
+\end{itemize}
+
+
+

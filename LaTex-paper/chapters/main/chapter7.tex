@@ -1,0 +1,63 @@
+\chapter{Kết luận và hướng phát triển}
+\label{chap:chap7}
+% \section{Thảo luận}
+
+% Trong bối cảnh dữ liệu học tập trực tuyến trên các nền tảng MOOCs thường rất phức tạp, đa dạng và không đồng nhất, việc xử lý và khai thác hiệu quả dữ liệu trở thành một thách thức lớn. Dữ liệu thường bao gồm nhiều loại thực thể khác nhau như người học, khóa học, các loại tương tác đa dạng (xem video, làm bài tập, thảo luận), đồng thời thường xuyên gặp tình trạng thiếu dữ liệu hoặc dữ liệu bị thưa thớt. Những vấn đề này ảnh hưởng nghiêm trọng đến chất lượng và độ chính xác của các mô hình dự đoán kết quả học tập.
+
+% Phương pháp của chúng tôi tập trung vào sử dụng Graph Convolutional Networks (GCN) để điền khuyết (imputation) dữ liệu bị thiếu, tận dụng cấu trúc đồ thị tự nhiên của các mối quan hệ giữa người học và các đối tượng liên quan. GCN có khả năng khai thác hiệu quả thông tin từ cả đặc trưng bản thân từng node (thực thể) và các node láng giềng trong đồ thị, giúp mô hình nắm bắt được mối quan hệ phức tạp và ngữ cảnh của từng thực thể trong hệ thống. Điều này vượt trội hơn so với các phương pháp điền khuyết truyền thống chỉ dựa trên đặc trưng riêng lẻ của từng cá thể.
+
+% Một trong những điểm mạnh nổi bật của GCN là khả năng khai thác thông tin gián tiếp thông qua các bước lan truyền trong đồ thị, nhờ đó làm tăng tính đầy đủ và chính xác của dữ liệu đầu vào sau khi điền khuyết. Việc này giúp giảm thiểu đáng kể vấn đề thiếu dữ liệu lịch sử (cold start) – vốn là một rào cản lớn trong các hệ thống dự đoán cá nhân hóa, đồng thời làm tăng tính ổn định và khả năng khái quát của các mô hình dự đoán.
+
+% Sau khi dữ liệu được điền khuyết hoàn chỉnh, chúng tôi tiếp tục sử dụng các mô hình học sâu (deep learning) và thực hiện quá trình tinh chỉnh (fine-tuning) các mô hình này trên dữ liệu đầy đủ. Việc tinh chỉnh giúp mô hình học sâu khai thác sâu hơn các đặc trưng phức tạp, mối quan hệ phi tuyến tính giữa các biến số và các tương tác đa chiều trong dữ liệu học tập của người dùng. Nhờ đó, mô hình không chỉ có khả năng dự đoán chính xác hơn mà còn thích nghi tốt với các biến đổi hoặc dữ liệu mới, nâng cao hiệu quả trong thực tế ứng dụng.
+
+% Việc kết hợp giữa điền khuyết dữ liệu bằng GCN và tinh chỉnh các mô hình học sâu tạo thành một chuỗi xử lý dữ liệu toàn diện, vừa giải quyết bài toán dữ liệu thiếu thưa, vừa nâng cao khả năng mô hình hóa các mối quan hệ phức tạp, từ đó cải thiện hiệu suất dự đoán kết quả hoàn thành khóa học một cách rõ rệt. Phương pháp này tận dụng tốt ưu điểm của cả hai kỹ thuật: GCN xử lý cấu trúc dữ liệu quan hệ, deep learning xử lý biểu diễn đặc trưng phi tuyến và phức tạp.
+
+% Tuy nhiên, bên cạnh những ưu điểm vượt trội, phương pháp này cũng đặt ra một số thách thức. Việc sử dụng GCN và các mô hình deep learning yêu cầu tài nguyên tính toán lớn, đặc biệt khi làm việc với các bộ dữ liệu có quy mô lớn hoặc có nhiều tính chất phức tạp. Điều này có thể gây khó khăn trong việc triển khai thực tế, đòi hỏi các kỹ thuật tối ưu hóa và phần cứng phù hợp để đảm bảo khả năng mở rộng và tốc độ xử lý.
+
+% Ngoài ra, chất lượng kết quả dự đoán vẫn phụ thuộc nhiều vào chất lượng dữ liệu gốc và hiệu quả của quá trình điền khuyết. Nếu dữ liệu ban đầu có nhiều lỗi hoặc thiếu quá nhiều thông tin, ngay cả GCN cũng có thể không hoàn toàn khắc phục được, dẫn đến giảm hiệu quả của các bước xử lý tiếp theo. Do đó, việc đảm bảo tính nhất quán, chính xác và làm sạch dữ liệu đầu vào vẫn là bước quan trọng không thể bỏ qua.
+
+% Việc lựa chọn và tinh chỉnh các siêu tham số trong cả GCN và các mô hình học sâu cũng là yếu tố then chốt quyết định hiệu quả mô hình. Cần có chiến lược tìm kiếm tối ưu và đánh giá kỹ lưỡng để tránh hiện tượng quá khớp (overfitting) hoặc không đủ khả năng khái quát (underfitting), đồng thời cân bằng giữa độ chính xác dự đoán và chi phí tính toán.
+
+% Tóm lại, phương pháp kết hợp điền khuyết bằng GCN và tinh chỉnh các mô hình deep learning được đánh giá là một giải pháp mạnh mẽ và hiệu quả trong việc dự đoán kết quả hoàn thành khóa học trên nền tảng MOOCs. Nó không chỉ nâng cao chất lượng dữ liệu đầu vào mà còn giúp mô hình học sâu tận dụng tối đa đặc trưng phức tạp, góp phần cải thiện độ chính xác và độ tin cậy của hệ thống dự đoán, mở ra nhiều hướng phát triển mới cho các nghiên cứu tiếp theo trong lĩnh vực phân tích và dự đoán dữ liệu học tập trực tuyến.
+
+% % Dữ liệu thực tế vốn dĩ rất không đồng nhất, bao gồm nhiều loại thực thể khác nhau như người dùng, mặt hàng, danh mục và các tương tác. Các mạng thông tin dị hướng (HINs) có khả năng mô hình hóa hiệu quả các mối quan hệ này, cho phép tích hợp thông tin đa dạng. Các nhúng được tiền huấn luyện từ HINs có thể tổng quát hóa tốt hơn với dữ liệu chưa từng thấy nhờ việc tiếp xúc với một phổ rộng các mối quan hệ và ngữ cảnh trong quá trình huấn luyện. Điều này giúp giảm thiểu rủi ro bị quá khớp (overfitting) và nâng cao khả năng của mô hình trong việc thích ứng với các bộ dữ liệu mới và đa dạng.
+
+% % Các nhúng từ HINs cung cấp một đại diện ban đầu toàn diện cho các tình huống khởi động lạnh (cold start), giúp giảm thiểu vấn đề thiếu dữ liệu lịch sử cho người dùng hoặc mặt hàng mới. Bằng cách tận dụng thông tin cấu trúc từ HINs, H-BERT4Rec trở nên ít nhạy cảm hơn với độ thưa thớt của dữ liệu, đảm bảo các khuyến nghị đáng tin cậy ngay cả khi các tương tác giữa người dùng và mặt hàng còn hạn chế. Tuy nhiên, việc xây dựng H-BERT4Rec cũng đối mặt với một số hạn chế và điểm cần cân nhắc:
+
+% % \begin{enumerate}
+% %     \item Kết hợp HINs với BERT có thể yêu cầu tài nguyên tính toán đáng kể, đặc biệt là đối với các bộ dữ liệu lớn, dẫn đến các vấn đề về khả năng mở rộng. Cần có các chiến lược hiệu quả cho việc xử lý và tối ưu hóa dữ liệu để giải quyết vấn đề này.
+% %     \item Việc tạo ra và duy trì HINs đòi hỏi quản lý và tích hợp dữ liệu cẩn thận để đảm bảo độ chính xác và nhất quán. Các lỗi trong dữ liệu hoặc các mối quan hệ có thể dẫn đến các nhúng không tối ưu và làm suy giảm hiệu suất của hệ thống khuyến nghị.
+% %     \item Tối ưu hóa các tham số có tác động đáng kể đến hiệu quả của mô hình (chẳng hạn như $N$, $d$, hoặc $\alpha, \beta, \theta$), và việc chấp nhận các đánh đổi trong các chỉ số ít hiệu quả hơn (ví dụ: một số thước đo có thể giảm, và tốc độ khuyến nghị có thể giảm khi N tăng lên).
+% % \end{enumerate}
+
+\section{Tổng kết}
+
+Trong khuôn khổ của khóa luận, các nội dung nghiên cứu đã được trình bày một cách hệ thống và đa chiều, tập trung vào việc đề xuất và triển khai phương pháp điền khuyết dữ liệu học tập trong môi trường MOOC dựa trên mạng nơ-ron tích chập đồ thị. Phương pháp đề xuất GCN-I đã được đánh giá thông qua một loạt thí nghiệm thực tế, kết hợp với các mô hình học sâu phổ biến, cho thấy nhiều kết quả khả quan.
+
+Các đóng góp chính của khóa luận bao gồm:
+(1) Đề xuất phương pháp \textbf{GCN-I} tận dụng cấu trúc liên kết giữa người học và khóa học để điền khuyết dữ liệu, từ đó nâng cao chất lượng dữ liệu đầu vào và đạt kết quả vượt trội so với các kỹ thuật truyền thống như \textit{Mean}, \textit{Median}, \textit{Listwise Deletion}, hay KNN, với độ chính xác đạt \textbf{95\%}, F1-score cho lớp \textbf{D} đạt \textbf{0.92}, và chỉ số \textbf{AUC-ROC} lên đến \textbf{0.99};
+(2) Thiết kế và triển khai hệ thống thực nghiệm gồm bốn mô hình học sâu phổ biến là \textbf{RNN}, \textbf{GRU}, \textbf{LSTM}, và \textbf{BiLSTM}, trong đó \textbf{GRU} đạt hiệu suất cao nhất;
+(3) Phân tích chi tiết hiệu quả mô hình trên các lớp dữ liệu khan hiếm, đặc biệt là lớp \textbf{D}, vốn thường bị bỏ qua do mất cân bằng nghiêm trọng;
+(4) Xây dựng hệ thống website \textbf{SmartEduTrack} có giao diện thân thiện, hỗ trợ người quản lý khóa học theo dõi quá trình học tập và dự đoán khả năng hoàn thành khóa học của từng người học, góp phần nâng cao hiệu quả giảng dạy trong môi trường trực tuyến.
+
+Dựa trên những kết quả thu được có thể kết luận việc điền khuyết dữ liệu một cách có cấu trúc và thông minh bằng \textbf{GCN}, cùng với các mô hình học sâu, không chỉ khả thi mà còn có hiệu quả vượt trội trong bối cảnh dữ liệu thực tế. Đây là đóng góp quan trọng của khóa luận trong việc mở rộng ứng dụng học máy vào lĩnh vực giáo dục trực tuyến trong thời đại số.
+
+\section{Hướng phát triển}
+
+Khóa luận đã tập trung khai thác tiềm năng của mạng nơ-ron tích chập trên đồ thị (GCNs) để giải quyết bài toán dữ liệu thưa thớt trên nền tảng MOOCs, đồng thời kết hợp với  công nghệ học sâu nhằm dự đoán kết quả hoàn thành khóa học chính xác và ổn định và xây dựng thành công website SmartEduTrack. Những kết quả chúng tôi đạt được là cơ sở để đạt được nhiều thành tựu mới trong tương lai. Cụ thể:
+
+\begin{enumerate}
+    \item \textbf{Mở rộng biểu diễn đồ thị học tập:} Hiện tại, dữ liệu được mô hình chỉ là các kết nối cơ bản giữa người học với nhau và người học với khóa học. Việc tích hợp thêm các yếu tố như chủ đề bài học, phản hồi người học, hoạt động trong diễn đàn, hoặc hành vi truy cập nội dung để xây dựng đồ thị học tập toàn diện hơn giúp mô hình học được ngữ cảnh phong phú và chính xác hơn từ dữ liệu quan sát.
+
+    \item \textbf{Ứng dụng các biến thể GCN nâng cao:} Áp dụng các kỹ thuật mới như GAT (Graph Attention Networks), GCN động hoặc GCN có yếu tố thời gian sẽ cho phép mô hình học tập hiệu quả hơn trong các tình huống dữ liệu thay đổi liên tục, đặc biệt với hành vi người học theo thời gian. Các biến thể này cũng có thể cải thiện khả năng khôi phục dữ liệu thực tế.
+
+    \item \textbf{Sử dụng các mô hình học máy hiện đại:} Các mô hình học sâu mạnh hơn như Transformer hoặc BERT, nhằm tận dụng dữ liệu đã được cải thiện qua GCN có thể được tích hợp. Việc điều chỉnh và tối ưu các mô hình giúp kết quả dự đoán được cải thiện không chỉ về độ chính xác mà còn khoảng thời gian dự đoán.
+
+    \item \textbf{Hướng tới dự đoán thời gian thực:} Việc xây dựng hệ thống dự đoán có khả năng cập nhật và phản hồi theo thời gian thực sẽ là bước tiến quan trọng, giúp giảng viên và quản lý khóa học can thiệp kịp thời. Điều này đòi hỏi kết hợp mô hình với các kiến trúc tính toán hiệu quả như học trực tuyến (online learning) hoặc xử lý phân tán.
+
+    \item \textbf{Phát triển thêm các chức năng ứng dụng:} Từ phương pháp được đề xuất, có thể phát triển các dashboard tương tác cung cấp thông tin dự báo, gợi ý học tập cá nhân hóa và cảnh báo rủi ro không hoàn thành khóa học. Hệ thống này có thể tích hợp trực tiếp vào nền tảng MOOC để hỗ trợ giảng viên ra quyết định và đồng hành cùng người học trong suốt quá trình học tập.
+
+    \item \textbf{Khả năng mở rộng và ứng dụng đa lĩnh vực:} Phương pháp GCN-I hoàn toàn có thể mở rộng áp dụng cho các nền tảng học trực tuyến khác như edX, Coursera, Udemy, cũng như các lĩnh vực có đặc điểm dữ liệu hành vi người dùng. Việc mở rộng này không chỉ cho phép kiểm tra khả năng tổng quát hóa của phương pháp mà còn tạo ra giá trị ứng dụng thực tiễn rộng rãi.
+\end{enumerate}
+
+Các kết quả đạt được trong khóa luận này chỉ là bước khởi đầu cho một chặng đường nghiên cứu dài hơn. Việc tiếp tục phát triển các định hướng đã gợi mở sẽ đóng vai trò then chốt trong việc gia tăng giá trị khoa học và tác động thực tiễn của đề tài. Cụ thể, các nỗ lực trong tương lai sẽ không chỉ tập trung vào việc tối ưu hóa các phương pháp đã xây dựng, mà còn mở rộng khả năng ứng dụng của chúng trong nhiều bối cảnh đa dạng. Quá trình này sẽ đồng thời củng cố nền tảng lý thuyết và là tiền đề để phát triển các giải pháp đổi mới, đáp ứng hiệu quả hơn các thách thức trong giáo dục trực tuyến. Hơn nữa, việc theo đuổi các định hướng này sẽ là cầu nối cho các nghiên cứu liên ngành, qua đó nâng cao giá trị khoa học ứng dụng thực tế.
