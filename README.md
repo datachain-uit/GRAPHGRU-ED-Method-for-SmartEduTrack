@@ -1,4 +1,4 @@
-# GCN-I Method for SmartEduTrack
+# GRAPHGRU-ED Method for SmartEduTrack
 
 SmartEduTrack leverages **Graph Convolutional Networks (GCN)** to address two major challenges in educational datasets: **sparsity** and **diversity**. This project introduces a novel method, **GCN-I**, which enhances data quality by inferring and filling in missing values within learner behavioral data using graph-based reasoning.
 
