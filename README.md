@@ -9,12 +9,6 @@ While traditional imputation methods (e.g., default value substitution) often le
 ## 📁 Project Structure
 
 ```
-|-- LaTex-paper
-| |-- img
-| | -- uitlogo.png 
-| |-- main.bib
-| -- main.tex
-|
 |-- src
 | |-- data
 |   |-- datasets
