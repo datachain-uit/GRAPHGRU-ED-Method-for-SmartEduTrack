@@ -12,7 +12,12 @@ While traditional imputation methods (e.g., default value substitution) often le
 |-- src
 | |-- data
 |   |-- datasets
-|   |-- notebooks
+      |-- processed
+      |-- raw
+    |-- notebooks
+      |-- Ablation study
+      |-- Baseline models
+      |-- GCN-I method model
 | |-- video demo
 | |-- Website demo
 |   |-- backend
