@@ -1,5 +1,9 @@
 # GRAPHGRU-ED Method for SmartEduTrack
 
+**JOURNAL**: Thu Nguyen, Kha Nguyen, Phuong Nguyen, Khoa Tan VO, Thu-Thuy Ta, Phuc Nguyen, Hong-Tri Nguyen, Tu-Anh Nguyen-Hoang, "GraphGRU-ED: Leveraging Graph-Based Imputation and Deep Learning for MOOC Completion Prediction", IEEE Access, Volume: 13, Page(s): 195272 - 195294 (2025).
+
+**LINK**: https://ieeexplore.ieee.org/document/11240168/
+
 SmartEduTrack leverages **Graph Convolutional Networks (GCN)** to address two major challenges in educational datasets: **sparsity** and **diversity**. This project introduces a novel method, **GCN-I**, which enhances data quality by inferring and filling in missing values within learner behavioral data using graph-based reasoning.
 
 While traditional imputation methods (e.g., default value substitution) often lead to loss of important semantic information, GCN-based inference takes advantage of the **structural relationships between data entities**. By modeling the data as a graph, GCN learns how to propagate information across connected nodes, enabling **context-aware and semantically-rich estimations** of missing values.
